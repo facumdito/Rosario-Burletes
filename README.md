@@ -60,21 +60,6 @@ npx @marp-team/marp-cli parana.md -o parana.pdf --allow-local-files
 
 ---
 
-## 📊 Datos operativos Rosario Burletes
-
-Archivos originales (no modificar):
-
-- `111.csv`, `222.csv` — historial de compras y ventas.
-- `RELOJ ABRIL 2025.csv`, `RELOJ JUNIO 2025.csv` — presentismo.
-- `Sin título 1.csv`, `Sin título 2.csv` — órdenes de trabajo.
-- `perfil e.csv` — seguimiento de producción por etapas.
-- `todas gomas.csv` — catálogo de materias primas (1.364 SKUs).
-- `recordatorios_vf.ipynb` — notebook de predicción de recompras B2B.
-
-Estos archivos son insumo del **caso 0** del producto Paraná: validan las funciones de predicción, catálogo semántico, trazabilidad de producción y presentismo.
-
----
-
 ## 🌎 Contacto
 
 Rosario, Argentina · Expansión LATAM 2027+.
