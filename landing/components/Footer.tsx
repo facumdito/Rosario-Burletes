@@ -7,11 +7,11 @@ export function Footer() {
           <span>·</span>
           <span>Rosario, Argentina</span>
         </div>
-        <div className="flex gap-6">
-          <a href="#problema" className="hover:text-[var(--color-brand)]">Problema</a>
-          <a href="#producto" className="hover:text-[var(--color-brand)]">Producto</a>
-          <a href="#precios" className="hover:text-[var(--color-brand)]">Precios</a>
-          <a href="#faq" className="hover:text-[var(--color-brand)]">FAQ</a>
+        <div className="flex gap-6 flex-wrap justify-center">
+          <a href="/#producto" className="hover:text-[var(--color-brand)]">Producto</a>
+          <a href="/#precios" className="hover:text-[var(--color-brand)]">Precios</a>
+          <a href="/blog" className="hover:text-[var(--color-brand)]">Blog</a>
+          <a href="/contacto" className="hover:text-[var(--color-brand)]">Contacto</a>
         </div>
         <div>© 2026 Paraná. Todos los derechos reservados.</div>
       </div>

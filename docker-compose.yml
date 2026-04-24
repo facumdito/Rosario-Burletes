@@ -1,0 +1,56 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: parana
+      POSTGRES_PASSWORD: parana
+      POSTGRES_DB: parana
+    ports:
+      - "5432:5432"
+    volumes:
+      - parana_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U parana -d parana"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://parana:parana@db:5432/parana
+      SECRET_KEY: ${SECRET_KEY:-dev-secret-change-me}
+      ENV: development
+      CORS_ORIGINS: http://localhost:3000,http://localhost:3001
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      WHATSAPP_ACCESS_TOKEN: ${WHATSAPP_ACCESS_TOKEN:-}
+      WHATSAPP_PHONE_NUMBER_ID: ${WHATSAPP_PHONE_NUMBER_ID:-}
+      WHATSAPP_VERIFY_TOKEN: ${WHATSAPP_VERIFY_TOKEN:-parana-verify-token}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./111.csv:/data/111.csv:ro
+      - ./222.csv:/data/222.csv:ro
+      - ./todas gomas.csv:/data/todas gomas.csv:ro
+      - ./perfil e.csv:/data/perfil e.csv:ro
+    command: >
+      sh -c "
+        alembic upgrade head &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      "
+
+volumes:
+  parana_pgdata:
