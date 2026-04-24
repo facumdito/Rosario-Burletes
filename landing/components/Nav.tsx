@@ -6,13 +6,13 @@ export function Nav() {
           <span className="gradient-text">Paraná</span>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--color-ink-soft)]">
-          <a href="#problema" className="hover:text-[var(--color-brand)]">Problema</a>
-          <a href="#producto" className="hover:text-[var(--color-brand)]">Producto</a>
-          <a href="#caso" className="hover:text-[var(--color-brand)]">Caso real</a>
-          <a href="#precios" className="hover:text-[var(--color-brand)]">Precios</a>
-          <a href="#faq" className="hover:text-[var(--color-brand)]">FAQ</a>
+          <a href="/#producto" className="hover:text-[var(--color-brand)]">Producto</a>
+          <a href="/#caso" className="hover:text-[var(--color-brand)]">Caso real</a>
+          <a href="/#precios" className="hover:text-[var(--color-brand)]">Precios</a>
+          <a href="/blog" className="hover:text-[var(--color-brand)]">Blog</a>
+          <a href="/contacto" className="hover:text-[var(--color-brand)]">Contacto</a>
         </nav>
-        <a href="#waitlist" className="btn-primary text-sm">
+        <a href="/#waitlist" className="btn-primary text-sm">
           Sumate a la lista
         </a>
       </div>
